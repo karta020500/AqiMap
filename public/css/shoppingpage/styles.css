@@ -1,0 +1,170 @@
+.shopdetaildiv{
+    position: absolute;
+    float: none;
+    padding: 0.5rem 0.5rem;
+    box-sizing: border-box;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgba(74, 101, 114, 1);
+    border-radius: 0px;
+    top: 45px;
+    height: calc(100% - 46px);
+  }
+  
+  .shopdetailtitle{
+    background-color: rgba(74, 101, 114, 1);
+    color: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .steptitle{
+    background-color: #AAAAAA;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .stepactive{
+    background-color: rgba(74, 101, 114, 1);
+  }
+
+  .detailcontent, .ordercontent, .completecontent{
+    margin: 10px;
+    padding-top: 2%;
+  }
+
+  .detailtable{
+    line-height: 2;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  td{
+    min-width: 15px;
+  }
+
+  .imglabel{
+    text-align: center;
+    padding: 6px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .detailtr:hover{
+      background-color: antiquewhite;
+      cursor: pointer;
+  }
+
+  .btndetail{
+    max-width: 200px;
+    padding: 5px;
+    text-align: center;
+    height: 40px;
+    background-color: white;
+    border: 2px rgba(121,121,121,1) solid;
+    border-radius: 24px;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: "Arial";
+    cursor: pointer;
+  }
+
+  .orderertable, .endusertable, .completeordertable, .completedetailtable{
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .textkey{
+    height: 30px;
+    width:90%
+}
+
+.panel-title{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.allpanel{
+  position: absolute;
+  max-height: 70%;
+  overflow-y: scroll;
+  width: 97%;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.well-legend {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  width: auto;
+  padding: 2px 7px 2px 5px;
+  line-height: inherit;
+  color: #333;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.tbodyborder{
+  border: 2px solid black;
+  border-collapse: separate;
+  border-spacing: 4px; 
+  margin-bottom:10px;
+}
+
+.completedetailtable tbody {
+  height: 17vh;
+  display: block;
+  overflow-y: scroll;
+}
+
+.completedetailtable thead,
+.tbodyborder tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.completedetaildiv{
+  font-size: 16px;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  bottom: 5%;
+}
+
+.btnsubmit{
+  width: 100px;
+  background-color: orange;
+  border-color: transparent;
+  float: right;
+  color: white;
+}
+
+.btnsubmit_ecpay{
+  width: 120px;
+  background-color: orange;
+  border-color: transparent;
+  float: right;
+  color: white;
+}

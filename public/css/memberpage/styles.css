@@ -1,0 +1,120 @@
+.image_map_banner{
+  height: 45px;
+  width: 140px;
+  float: left;
+  background-size: 206px 60px;
+  background-repeat: no-repeat;
+  margin: 5px;
+  background-color: #FFFFFF;
+}
+
+.memberdiv{
+  position: absolute;
+  float: none;
+  padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(74, 101, 114, 1);
+  border-radius: 0px;
+  top:45px;
+  height: calc(100% - 46px);
+}
+
+.membertitle{
+  background-color: rgba(74, 101, 114, 1);
+  color: #FFFFFF;
+  padding: 5px;
+  width: 250px;
+}
+
+.membertable{
+  font-family: "Arial";
+  font-weight: 400;
+  font-style: normal;
+  font-size:18px;
+  padding: 15px;
+  line-height:35px;
+  width:100%;
+  margin-left: 5px;
+  border-collapse: collapse;
+}
+
+.table td, .table th {
+  min-width: 100px;
+}
+
+.btn-lg{
+  font-size: 18px;
+  width:80px;
+}
+
+.diskeyin{
+  width: 250px;
+  height: 30px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+input[type=text][disabled="disabled"]
+{
+    color: black;
+    background-color: transparent;
+    border: none;
+}
+
+input[type=text]
+{
+    color: blue;
+    background-color: white;
+    border: 1px #d4d4d4 solid;
+}
+
+.textkey{
+    height: 30px;
+    width: 100%;
+}
+
+.divcenter{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.left-panel{
+  position: absolute;
+  width: 170px;
+  height: 100%;
+  border-right: 2px solid rgb(230, 226, 226);
+}
+
+.right-panel{
+  position:absolute;
+  left: 180px;
+  top:3%;
+  width: calc(100% - 185px);
+  padding: 10px;
+}
+
+.btn-offset {
+  width: 95%;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.userdiv{
+    position: absolute;
+    float: none;
+    padding: 0.5rem 0.5rem;
+    box-sizing: border-box;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgba(74, 101, 114, 1);
+    border-radius: 0px;
+    top:45px;
+    height: calc(200% - 46px);
+    width: 100%;
+}
