@@ -11,14 +11,22 @@
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/standard.js') }}"></script>
 
+ @include('../data/aqi')
 
-<div id="map">
-    @include('../data/aqi')
+<div id="map" class="map">
+    <div id="popup"></div>
 </div>
+
+<div id="sitedata">
+    @include('../data/sitedata')
+</div>
+
 <script type="text/javascript">
+
     $(document).ready(function(e) {
         init();
     });
+    
 </script>
 
 

@@ -1,7 +1,7 @@
-@if($aqis != null && $aqis->count() != 0)
-    @foreach ($aqis as $aqi)
+@if($coordinates != null && $coordinates->count() != 0)
+    @foreach ($coordinates as $coordinate)
       <script>
-          addPointByCoord('{{ $aqi->Latitude }}', '{{ $aqi->Longitude }}');
+          addPointByCoord('{{ $coordinate->Latitude }}', '{{ $coordinate->Longitude }}', '{{ $coordinate->SiteId }}');
       </script>
     @endforeach
 @endif

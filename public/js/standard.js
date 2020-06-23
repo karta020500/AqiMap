@@ -1,4 +1,5 @@
-var center_map;
+
+var center_map ;
 var draw;
 var dragZoom;
 var source;
@@ -9,9 +10,14 @@ var vectorSource = new ol.source.Vector({
 });;
 var isLogin = false;
 var vector_kml;
-
 var style_modify;
-
+$(function () {
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+		}
+	});
+});
 function init(){
 	$('#upload').attr('disabled', true);
 	init_map(resize_map_style,map_event);
@@ -53,11 +59,11 @@ function init_map(callback01,callback02){
 				collapsible: false
 			})
 		}).extend([
-            new ol.control.OverviewMap(),
-            center_scaleLineControl,
-            new ol.control.Zoom({
-                className: 'custom-zoom'
-            })
+			new ol.control.OverviewMap(),
+			center_scaleLineControl,
+			new ol.control.Zoom({
+				className: 'custom-zoom'
+			})
 		]),
 		interactions: ol.interaction.defaults().extend([
 			new ol.interaction.DragRotateAndZoom(),
@@ -68,13 +74,11 @@ function init_map(callback01,callback02){
 
 		],
 
-		target: "map",
+		target: document.getElementById('map'),
 		view: new ol.View({
 
-			center: ol.proj.transform([121.617203, 25.055653], 'EPSG:4326', 'EPSG:900913'),
-			projection: "EPSG:900913",
-            extent: ol.proj.transform([114.024543, 20.4267532245471, 16474217.640085237, 5813315.416422882], 'EPSG:4326', 'EPSG:900913'),
-			zoom: 5,
+			center: ol.proj.fromLonLat([120.8718112, 23.8502971]),
+			zoom: 8,
 			maxZoom: 19,
 			minZoom: 2,
 			enbaleRotation: false
@@ -102,23 +106,61 @@ function init_map(callback01,callback02){
 		fill: new ol.style.Fill({
 			color: [220, 249, 164, 0.5]
 		})
-    });
+		});
+	var element = document.getElementById('popup');
 
+	var popup = new ol.Overlay({
+		element: element,
+		positioning: 'center',
+		stopEvent: false,
+		offset: [0, -20]
+	});
+
+	center_map.addOverlay(popup);
+	var url = "Sitedata";
+	// display popup on click
+	center_map.on('click', function (evt) {
+		var feature = center_map.forEachFeatureAtPixel(evt.pixel,
+			function (feature) {
+				return feature;
+			});
+		if (feature) {
+		var coordinates = feature.getGeometry().getCoordinates();
+		popup.setPosition(coordinates);
+		$(element).popover({
+			placement: 'top',
+			html: true,
+			content: feature.get('name')
+		});
+		$(element).popover('show');
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: {
+						'SiteId': feature.get('name')
+				},
+				success: function (data) {
+					var div_sitedata = $(data).find("#sitedata");
+					//alert(data.success);
+					$("#sitedata").empty().html(div_sitedata);
+				}
+				});
+	} else {
+		$(element).popover('destroy');
+	}
+
+	});
 	callback01();
 	callback02();
 }
-
-var polyCoords = [];
-
 function clear_vector()
 {
 	vectorSource.clear();
 }
-
-function addPointByCoord(Latitude, Longitude) {
-
+function addPointByCoord(Latitude, Longitude, SiteId) {
 	var feature = new ol.Feature({
 		geometry: new ol.geom.Point(ol.proj.fromLonLat([parseFloat(Longitude), parseFloat(Latitude)])),
+		name: SiteId
 	});
 
 	var iconStyle = new ol.style.Style({

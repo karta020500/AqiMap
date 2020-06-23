@@ -15,8 +15,9 @@ class MapbodyController extends Controller
      */
     public function index()
     {
-        $aqis = aqi::all();
-        return view('map.mapbody', compact('aqis'));
+        $coordinates = aqi::select('Longitude', 'Latitude', 'SiteId')->distinct()->get();
+        $aqis = null;
+        return view('map.mapbody', ['coordinates' => $coordinates, 'aqis' => $aqis]);
     }
 
     /**
@@ -24,9 +25,31 @@ class MapbodyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function sitesearch(Request $request)
+    {
+        
+        if (empty($request->input('SiteId')) == false){
+            $aqis = aqi::select('SiteId', 'AQI')->Where('SiteId', $request->input('SiteId'))->get();
+            $coordinates = null;
+            
+        }
+        if ($request->ajax()) {
+            //return response()->json(['success'=> $aqis]);
+            return view('map.mapbody', compact('coordinates', 'aqis'));
+        }
+        return view('map.mapbody', ['corrdinates' => $coordinates,'aqis' => $aqis]);
+    }
+
     public function create()
     {
-        //
+        if (empty($request->input('SiteId')) == false){
+            $aqis = aqi::select('SiteId', 'AQI')->Where('SiteId', $request->input('SiteId'))->get();
+            $coordinates = aqi::select('Longitude', 'Latitude')->distinct()->get();
+        }
+        if ($request->ajax()) {
+            return view('data.sitedata', compact('coordinates', 'aqis'));
+        }
+        return view('data.sitedata', ['corrdinates' => $coordinates,'aqis' => $aqis]);
     }
 
     /**
