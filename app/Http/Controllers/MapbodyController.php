@@ -29,7 +29,7 @@ class MapbodyController extends Controller
     {
         
         if (empty($request->input('SiteId')) == false){
-            $aqis = aqi::select('SiteId', 'AQI')->Where('SiteId', $request->input('SiteId'))->get();
+            $aqis = aqi::select('SiteId', 'AQI', 'PublishTime', 'SiteName')->Where('SiteId', $request->input('SiteId'))->get();
             $coordinates = null;
             
         }
@@ -42,14 +42,7 @@ class MapbodyController extends Controller
 
     public function create()
     {
-        if (empty($request->input('SiteId')) == false){
-            $aqis = aqi::select('SiteId', 'AQI')->Where('SiteId', $request->input('SiteId'))->get();
-            $coordinates = aqi::select('Longitude', 'Latitude')->distinct()->get();
-        }
-        if ($request->ajax()) {
-            return view('data.sitedata', compact('coordinates', 'aqis'));
-        }
-        return view('data.sitedata', ['corrdinates' => $coordinates,'aqis' => $aqis]);
+        
     }
 
     /**

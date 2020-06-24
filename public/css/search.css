@@ -181,7 +181,7 @@
 	top: 90px;
 	left: 10px;
 	width: 300px;
-	height: 400px;
+    height: 400px;
 }
 
 .result_uni {
@@ -201,7 +201,9 @@
 	width: 263px;
     height: 305px;
 }
-
+#chart { 
+    background-color: #22293d; 
+} 
 .sort_title{
     text-align: center;
     background: #000000;

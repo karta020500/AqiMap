@@ -44,7 +44,7 @@ html, body {
     width: 100%;
     height: calc(100% - 45px);
 
-	right: 10px;*/
+	right: 10px;
 	background-color: rgb(204,204,204);
 	cursor:pointer;
 }
@@ -144,7 +144,7 @@ html, body {
 }
 #st1_div{
 	background-color: #DDDDDD;
-	position: absolute;
+	position: absolute;	
 }
 
 .result_uni {
@@ -161,13 +161,13 @@ html, body {
 	height:25px;
 }
 
-.uni_title, .result_count_title {
-	color:white;
-	background-color:#000000;
+.uni_title, .result_title {
+	color:rgb(255, 180, 17);
+	background-color:#648092;
 	height:32px;
 }
 
-.sate_result_content{
+.site_result_content{
 	color:black;
 	background-color:white;
 	max-height:450px;

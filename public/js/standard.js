@@ -4,6 +4,8 @@ var draw;
 var dragZoom;
 var source;
 var vector;
+var datas = [];
+var labels = [];
 var vectorLayer;
 var vectorSource = new ol.source.Vector({
 	features: []
@@ -127,12 +129,6 @@ function init_map(callback01,callback02){
 		if (feature) {
 		var coordinates = feature.getGeometry().getCoordinates();
 		popup.setPosition(coordinates);
-		$(element).popover({
-			placement: 'top',
-			html: true,
-			content: feature.get('name')
-		});
-		$(element).popover('show');
 			$.ajax({
 				url: url,
 				type: 'POST',

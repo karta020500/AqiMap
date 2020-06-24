@@ -13,6 +13,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
         <meta name="_token" content="{{ csrf_token() }}">
     </head>
     <body>

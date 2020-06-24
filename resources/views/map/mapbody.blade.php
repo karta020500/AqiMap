@@ -11,25 +11,6 @@
 <script type="text/javascript" src="{{ URL::asset('js/search.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/standard.js') }}"></script>
 
- @include('../data/aqi')
-
-<div id="map" class="map">
-    <div id="popup"></div>
-</div>
-
-<div id="sitedata">
-    @include('../data/sitedata')
-</div>
-
-<script type="text/javascript">
-
-    $(document).ready(function(e) {
-        init();
-    });
-    
-</script>
-
-
 <style>
 #map {
 	width: 100%;
@@ -55,5 +36,18 @@
     font-weight:bold;
 }
 </style>
-    
+ @include('../data/aqi')
+
+<div id="map" class="map">
+    <div id="popup">
+        <div id="sitedata" style= "width: 400px;">
+            @include('../data/sitedata')
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        init();
+    });
+</script>
 @endsection
