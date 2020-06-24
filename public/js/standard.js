@@ -1,4 +1,3 @@
-
 var center_map ;
 var draw;
 var dragZoom;
@@ -9,10 +8,11 @@ var labels = [];
 var vectorLayer;
 var vectorSource = new ol.source.Vector({
 	features: []
-});;
+});
 var isLogin = false;
 var vector_kml;
 var style_modify;
+
 $(function () {
 	$.ajaxSetup({
 		headers: {
@@ -122,11 +122,13 @@ function init_map(callback01,callback02){
 	var url = "Sitedata";
 	// display popup on click
 	center_map.on('click', function (evt) {
+		
 		var feature = center_map.forEachFeatureAtPixel(evt.pixel,
 			function (feature) {
 				return feature;
 			});
 		if (feature) {
+		$('#sitedata').show();
 		var coordinates = feature.getGeometry().getCoordinates();
 		popup.setPosition(coordinates);
 			$.ajax({
@@ -141,10 +143,7 @@ function init_map(callback01,callback02){
 					$("#sitedata").empty().html(div_sitedata);
 				}
 				});
-	} else {
-		$(element).popover('destroy');
 	}
-
 	});
 	callback01();
 	callback02();

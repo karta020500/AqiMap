@@ -175,7 +175,7 @@
     height: 650px;
 }
 
-.search_satellite_result {
+.AQI_result {
 	z-index: 4001;
 	position: absolute;
 	top: 90px;
