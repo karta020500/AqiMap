@@ -11,7 +11,6 @@
                       <canvas id="chart" width="800" height="600"></canvas>
                       @foreach ($aqis as $aqi)
                       <script>
-
                         datas.push(parseFloat('{{ $aqi->AQI }}'));
                         var str = '{{ $aqi->PublishTime }}';
                         str = str.replace('2020-', '');

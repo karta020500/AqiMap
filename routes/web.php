@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', "MapbodyController@index");
-Route::get('/Crawler', "CrawlerController@index");
-Route::post('/Sitedata', 'MapbodyController@sitesearch');
-
+Route::post('/Sitedata', 'MapbodyController@siteSearch');

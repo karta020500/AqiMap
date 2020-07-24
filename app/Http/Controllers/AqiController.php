@@ -23,6 +23,8 @@ class AqiController extends Controller
         $Status = $request->input('Status');
         
         $results = aqi::where([['County', $County], ['Status', $Status]])->get();
+
+        return $results;
     }
 
     /**

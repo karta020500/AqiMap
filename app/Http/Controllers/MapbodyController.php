@@ -25,16 +25,13 @@ class MapbodyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sitesearch(Request $request)
+    public function siteSearch(Request $request)
     {
-        
-        if (empty($request->input('SiteId')) == false){
+        if (empty($request->input('SiteId')) == false) {
             $aqis = aqi::select('SiteId', 'AQI', 'PublishTime', 'SiteName')->Where('SiteId', $request->input('SiteId'))->get();
             $coordinates = null;
-            
         }
         if ($request->ajax()) {
-            //return response()->json(['success'=> $aqis]);
             return view('map.mapbody', compact('coordinates', 'aqis'));
         }
         return view('map.mapbody', ['corrdinates' => $coordinates,'aqis' => $aqis]);
@@ -42,7 +39,6 @@ class MapbodyController extends Controller
 
     public function create()
     {
-        
     }
 
     /**
