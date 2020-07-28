@@ -21,13 +21,12 @@ class CreateAqisTable extends Migration
             $table->char('Status', 5);
             $table->string('SO2');
             $table->string('CO');
-            $table->string('PM25_AVG')->nullable();
             $table->string('PM10_AVG');
             $table->string('WindSpeed');
             $table->string('WindDirec');
             $table->string('SiteId');
-            $table->double('Latitude', 20, 8);
-            $table->double('Longitude', 20, 8);
+            $table->double('Latitude', 50, 6);
+            $table->double('Longitude', 50, 6);
             $table->dateTime('PublishTime');
             $table->timestamps();
         });

@@ -50,7 +50,7 @@ class Crawler extends Command
         $datas = $response->getBody();
         $datas = json_decode($datas, true);
         foreach ($datas as $data) {
-            $allowed  = ['SiteName', 'County', 'AQI', 'Status', 'SO2', 'CO', 'PM25_AVG', 'PM10_AVG', 'WindSpeed', 'WindDirec', 'SiteId', 'Latitude', 'Longitude', 'PublishTime'];
+            $allowed  = ['SiteName', 'County', 'AQI', 'Status', 'SO2', 'CO', 'PM10_AVG', 'WindSpeed', 'WindDirec', 'SiteId', 'Latitude', 'Longitude', 'PublishTime'];
             $filtered = array_filter(
                 $data,
                 function ($key) use ($allowed) {

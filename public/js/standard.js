@@ -51,8 +51,9 @@ function init_map(callback01,callback02){
         source: new ol.source.OSM({
             key: 'AphfyWsW8T9h2m7UnPu0LVDRD93iuJOHQa51y_vDbBug7Zx5XPUJM3mcs9gIHIUr',
             imagerySet: 'AerialWithLabels', //Aerial or 'Road', 'AerialWithLabels', etc.
-            maxZoom: 19
-        })
+            maxZoom: 19,
+				}),
+				
     });
 
 	center_map = new ol.Map({
@@ -61,8 +62,6 @@ function init_map(callback01,callback02){
 				collapsible: false
 			})
 		}).extend([
-			new ol.control.OverviewMap(),
-			center_scaleLineControl,
 			new ol.control.Zoom({
 				className: 'custom-zoom'
 			})
@@ -152,17 +151,27 @@ function clear_vector()
 {
 	vectorSource.clear();
 }
-function addPointByCoord(Latitude, Longitude, SiteId) {
+function addPointByCoord(Latitude, Longitude, SiteId, AQI) {
+	var Latitude = parseFloat(Latitude)
+	var Longitude = parseFloat(Longitude)
+	var AQI = parseFloat(AQI)
+	var icon_green = './images/triangle(green).png';
+	var icon_yellow = './images/triangle(yellow).png';
 	var feature = new ol.Feature({
-		geometry: new ol.geom.Point(ol.proj.fromLonLat([parseFloat(Longitude), parseFloat(Latitude)])),
+		geometry: new ol.geom.Point(ol.proj.fromLonLat([Longitude, Latitude])),
 		name: SiteId
 	});
-
-	var iconStyle = new ol.style.Style({
-		image: new ol.style.Icon(({
-			src: './images/mask.png'
-		}))
-	});
+	if (AQI >= 50){
+		var iconStyle = new ol.style.Style({
+			image: new ol.style.Icon(({
+				src: icon_yellow}))
+		});
+	} else {
+		var iconStyle = new ol.style.Style({
+			image: new ol.style.Icon(({
+				src: icon_green}))
+		});
+	}
 	feature.setStyle(iconStyle);
 	vectorSource.addFeature(feature);
 }

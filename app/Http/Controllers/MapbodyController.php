@@ -15,7 +15,7 @@ class MapbodyController extends Controller
      */
     public function index()
     {
-        $coordinates = aqi::select('Longitude', 'Latitude', 'SiteId')->distinct()->get();
+        $coordinates = aqi::select('Longitude', 'Latitude', 'SiteId', 'AQI')->distinct()->get();
         $aqis = null;
         return view('map.mapbody', ['coordinates' => $coordinates, 'aqis' => $aqis]);
     }

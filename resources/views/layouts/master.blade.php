@@ -20,5 +20,32 @@
         <div class="content">
             @yield('content')
         </div>
+        <div class="aqi-labels">
+            <div class="aqi-labels-inner">
+                <table>
+                    <tr>
+                        <td class="aqi-label aqi-label-title"><div>空氣品質指標</div>
+                    </td>
+                    <td class="aqi-label aqi-label-1" data-balloon-pos="up">
+                            <div>好</div>
+                    </td>
+                    <td class="aqi-label aqi-label-2" data-balloon-pos="up">
+                            <div>中等</div>
+                    </td>
+                    <td class="aqi-label aqi-label-3" data-balloon-pos="up">
+                            <div>對敏感族群不健康</div>
+                    </td>
+                    <td class="aqi-label aqi-label-4" data-balloon-pos="up">
+                            <div>不健康</div>
+                    </td>
+                    <td class="aqi-label aqi-label-5" data-balloon-pos="up">
+                            <div>非常不健康</div>
+                    </td>
+                    <td class="aqi-label aqi-label-6" data-balloon-pos="up">
+                            <div>危險</div>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
     </body>
 </html>
