@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/aqi', 'AqiController@index');
-Route::post('/aqi', 'AqiController@filter');
+Route::get('/aqi', 'ApiController@index');
+Route::post('/aqi', 'ApiController@filter');

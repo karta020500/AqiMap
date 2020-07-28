@@ -3,28 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Http\Services\AqiService;
 use App\aqi;
 
-class AqiController extends Controller
+class ApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    private $aqiService;
+
+    public function __construct(AqiService $aqiService)
     {
-        return aqi::all();
+        $this->aqiService = $aqiService;
     }
 
-        public function filter(Request $request)
+    public function index(Request $request)
+    {
+        $limit = $request->limit==null ? 10:$request->limit;
+        $query = aqi::query();
+        $query = $this->aqiService->filterAqis($request->filters, $query);
+        $query = $this->aqiService->sortAqis($request->sorts, $query);
+
+        $aqi = $query->paginate($limit);
+        return response($aqi, Response::HTTP_OK);
+    }
+
+    public function filter(Request $request)
     {
         $County = $request->input('County');
         $Status = $request->input('Status');
-        
-        $results = aqi::where([['County', $County], ['Status', $Status]])->get();
+        $response = response()->json(aqi::where([['County', $County], ['Status', $Status]])->get());
 
-        return $results;
+        return $response;
     }
 
     /**

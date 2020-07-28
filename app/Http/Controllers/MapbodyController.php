@@ -28,7 +28,7 @@ class MapbodyController extends Controller
     public function siteSearch(Request $request)
     {
         if (empty($request->input('SiteId')) == false) {
-            $aqis = aqi::select('SiteId', 'AQI', 'PublishTime', 'SiteName')->Where('SiteId', $request->input('SiteId'))->get();
+            $aqis = aqi::select('SiteId', 'AQI', 'PublishTime', 'SiteName')->Where('SiteId', $request->input('SiteId'))->limit(6)->get();
             $coordinates = null;
         }
         if ($request->ajax()) {
