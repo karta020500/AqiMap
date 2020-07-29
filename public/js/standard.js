@@ -23,19 +23,15 @@ $(function () {
 function init(){
 	$('#upload').attr('disabled', true);
 	init_map(resize_map_style,map_event);
-
 }
 function resize_map_style() {
-
 	$("#map div.ol-overviewmap.ol-custom-overviewmap.ol-unselectable.ol-control.ol-uncollapsible").css("top", "5px").css("bottom", "auto").css("left", "auto").css("right", "5px");
 	$("#map div.ol-scale-line.ol-unselectable").css("left", "auto").css("right", "5px");
 }
 
     
 function map_event(){
-
 	center_map.on('click',function(e){
-
 	});
 
 }
@@ -53,7 +49,6 @@ function init_map(callback01,callback02){
             imagerySet: 'AerialWithLabels', //Aerial or 'Road', 'AerialWithLabels', etc.
             maxZoom: 19,
 				}),
-				
     });
 
 	center_map = new ol.Map({
@@ -157,21 +152,25 @@ function addPointByCoord(Latitude, Longitude, SiteId, AQI) {
 	var AQI = parseFloat(AQI)
 	var icon_green = './images/triangle(green).png';
 	var icon_yellow = './images/triangle(yellow).png';
+	var icon_orange = './images/triangle(orange).png';
+	var icon_red = './images/triangle(red).png';
+	var src = icon_green;
 	var feature = new ol.Feature({
 		geometry: new ol.geom.Point(ol.proj.fromLonLat([Longitude, Latitude])),
 		name: SiteId
 	});
 	if (AQI >= 50){
-		var iconStyle = new ol.style.Style({
-			image: new ol.style.Icon(({
-				src: icon_yellow}))
-		});
-	} else {
-		var iconStyle = new ol.style.Style({
-			image: new ol.style.Icon(({
-				src: icon_green}))
-		});
+		src = icon_yellow;
+	} else if (AQI >= 100 && AQI < 150){ 
+		src = icon_orange;
+	} else if (AQI >= 150 && AQI < 200){
+		src = icon_red;
 	}
+	var iconStyle = new ol.style.Style({
+		image: new ol.style.Icon(({
+			src: src
+		}))
+	});
 	feature.setStyle(iconStyle);
 	vectorSource.addFeature(feature);
 }

@@ -6,9 +6,8 @@ class AqiService
 {
     public function filterAqis($filters, $query)
     {
-        // 篩選欄位條件
         if (isset($filters)) {
-            $filtersArray = explode(',', $filters);
+            $filtersArray = explode(',', $filters);         
             foreach ($filtersArray as $key => $filter) {
                 list($criteria, $value) = explode(':', $filter);
                 $query->where($criteria, $value);
