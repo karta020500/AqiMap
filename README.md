@@ -3,7 +3,7 @@
 This project objective is to build an AQI map that using web-crawler technologies and task schedule to pull data from the AQI open data resource in every hour and displays dynamic AQI information on web gis platform. To create a simple REST API provide basic data filtering and sorting functionality from an established database.
 
 ## Screenshots
-|  <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot04.png" width = "500" height = "300" /> | <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot03.png" width = "500" height = "300" />  | 
+|  <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot04.png" width = "600" height = "300" /> | <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot03.png" width = "600" height = "300" />  | 
 |:-------:|:-----:|
 |  <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot01.png" width = "500" height = "300" /> | <img src="https://github.com/karta020500/AqiMap/blob/master/screenshots/screenshot02.png" width = "500" height = "300" />  | 
 
