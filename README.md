@@ -1,6 +1,6 @@
 # AQI(Air Quality Index) Map
 
-This project objective is to build a AQI map that using web-crawler technologies and task schedule to pull data from the AQI opendata resource in every hours and displays dynamic AQI information on web gis platform. To explore a variety of features with Laravel and other technologies, including the HTTP client, Tailwind CSS, Livewire.
+This project objective is to build an AQI map that using web-crawler technologies and task schedule to pull data from the AQI open data resource in every hour and displays dynamic AQI information on web gis platform. To create a simple REST API from a established database.
 
 ## Screenshots
 ![screenshot](https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot01.png)
