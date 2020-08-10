@@ -1,6 +1,6 @@
 # AQI(Air Quality Index) Map
 
-This project objective is to build an AQI map that using web-crawler technologies and task schedule to pull data from the AQI open data resource in every hour and displays dynamic AQI information on web gis platform. To create a simple REST API from a established database.
+This project objective is to build an AQI map that using web-crawler technologies and task schedule to pull data from the AQI open data resource in every hour and displays dynamic AQI information on web gis platform. To create a simple REST API provide basic data filtering and sorting functionality from an established database.
 
 ## Screenshots
 ![screenshot](https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot01.png)
