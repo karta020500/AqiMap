@@ -6,7 +6,7 @@ This project objective is to build an AQI map that using web-crawler technologie
 |  <img src="https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot02.png" width = "500" height = "300" /> | <img src="https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot04.png" width = "500" height = "300" />  | 
 |:-------:|:-----:|
 |  <img src="https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot02.png" width = "500" height = "300" /> | <img src="https://github.com/karta020500/Videogames/blob/master/screenshot/screenshot04.png" width = "500" height = "300" />  | 
-|:-------:|:-----:|
+
 
 ## Installation
 
